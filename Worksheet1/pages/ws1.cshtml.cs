@@ -11,11 +11,16 @@ namespace Worksheet1.pages
     {
         public void OnGet()
         {
-
+            Message = "GET METHOD!";
         }
 
         public string[] MyTestArray { get; set; } = { "England", "Ireland", "Scotland", "Wales" };
+        public string Message { get; set; }
 
+        public void OnPost(int number1)
+        {
+           Message = string.Format("POST METHOD, number was {0}",number1);
+        }
     }
 
 

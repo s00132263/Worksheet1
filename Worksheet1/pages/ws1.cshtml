@@ -13,6 +13,8 @@
 </head>
 <body>
 
+    <h1>CSHTML PAGE</h1>
+
     <ul>
         @foreach (string country in Model.MyTestArray)
         {
@@ -20,5 +22,13 @@
         }
     </ul>
 
+    <h1>@Model.Message</h1>
+
+    <form method="post">
+        <label for="number1">Number1</label>
+        <input type="number" id="numebr1" name="number1" />
+
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
