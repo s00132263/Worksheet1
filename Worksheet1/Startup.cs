@@ -24,10 +24,10 @@ namespace Worksheet1
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseStaticFiles();
-                app.UseMvc();
-
+               
             }
+            app.UseStaticFiles();
+            app.UseMvc();
 
             app.Run(async (context) =>
             {

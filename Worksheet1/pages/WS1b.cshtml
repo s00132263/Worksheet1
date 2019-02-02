@@ -1,0 +1,32 @@
+﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Worksheet1.pages.WS1bModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WS1b</title>
+</head>
+<body>
+
+    <h1>WS1B</h1>
+
+    <form method="post">
+        <label asp-for=Number1>Number1</label>
+        <input asp-for=Number1 />
+
+        <label asp-for=Number2>Number2</label>
+        <input asp-for=Number2 />
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>@Model.Message</h2>
+
+</body>
+</html>
