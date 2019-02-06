@@ -1,0 +1,79 @@
+﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Worksheet1.pages.timeModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>time</title>
+</head>
+<body>
+
+    <form method="post">
+        <fieldset>
+
+            <legend>Pick Days</legend>
+
+            @for (int i = 0; i < @Model.ChosenDay.Length; i++)
+            {
+                <input asp-for=ChosenDay[i] />
+                <label asp-for=ChosenDay[i]>@Model.DaysArray[i]</label>
+            }
+
+        </fieldset>
+
+        <select asp-for=ChosenMonths>
+            @foreach (string month in @Model.MonthList)
+            {
+                <option>@month</option>
+            }
+
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+
+    <ul>
+        @for (int i = 0; i < @Model.ChosenDay.Length; i++)
+        {
+            if (Model.ChosenDay[i])
+            {
+                <li>@Model.DaysArray[i]</li>
+            }
+        }
+    </ul>
+
+    <ul>
+        @for (int i = 0; i < @Model.MonthChosen.Length; i++)
+        {
+            if (Model.MonthChosen[i])
+            {
+                <li>@Model.MonthList[i]</li>
+            }
+        }
+    </ul>
+
+    @if (Model.HttpContext.Request.Method == "POST")
+    {
+
+        @if (@Model.ChosenMonths.Length == 0)
+        {
+            <h3>You picked no months</h3>;
+        }
+        else
+        {
+            <ul>
+                @foreach (string month in @Model.ChosenMonths)
+                {
+                    <li>@month</li>
+                }
+            </ul>
+        }
+        //<h3>@Html.Raw(Model.Message)</h3>
+    }
+    </body>
+</html>
